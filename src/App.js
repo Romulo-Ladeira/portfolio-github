@@ -5,7 +5,7 @@ import {Sumary} from "./components/Sumary"
 function App() {
   return (
    <>
-    <Sumary />
+    <Sumary imagem="wre" nome="Romulo" />
     <Repository/>
     </>
   )

@@ -1,9 +1,17 @@
-export function Repository(){
+import propTypes from "prop-types"
+
+export function Repository({titulo, descricao, destacar}){
     return(
         <article>
-            <h3>texto provisório</h3>
+            <h3>{titulo}</h3>
             <span>projeto em destaque!!</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...</p>
+            <p>{descricao}</p>
         </article>
     )
+}
+
+Repository.propTypes = {
+    titulo: propTypes.string.isRequired,
+    descricao: propTypes.string,
+    destacar: propTypes.bool.isRequired
 }

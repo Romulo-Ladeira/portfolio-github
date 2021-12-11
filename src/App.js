@@ -5,8 +5,8 @@ import {Sumary} from "./components/Sumary"
 function App() {
   return (
    <>
-    <Sumary imagem="wre" nome="Romulo" />
-    <Repository/>
+    <Sumary imagem="https://github.com/Romulo-Ladeira.png" nome="Romulo" />
+    <Repository titulo="O projeto" descricao={1}  destacar={false}/>
     </>
   )
 }

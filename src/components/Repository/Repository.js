@@ -1,14 +1,16 @@
 import propTypes from "prop-types"
-
+import repositoyCss from "./Repository.module.css"
 export function Repository({titulo, descricao, destacar}){
     return(
-        <article>
-            <h3>{titulo}</h3>
-            {destacar?
-            <span>projeto em destaque!!</span>:
-            <span></span>}
+        <article className={repositoyCss['article']}>
+            <div className={repositoyCss['repository']}>
+                <h3 className={repositoyCss['repository__title']}>{titulo}</h3>
+                {destacar?
+                <span>projeto em destaque!!</span>:
+                <span></span>}
+            </div>
             
-            <p>{descricao}</p>
+            <p className={repositoyCss["reository__discription"]}>{descricao}</p>
         </article>
     )
 }

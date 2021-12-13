@@ -1,0 +1,17 @@
+article{
+    display: flex;
+}
+.repository{
+margin: 10px 10px;
+width: 250px;
+}
+
+.repository__title{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.reository__discription{
+    width: 50%;
+}

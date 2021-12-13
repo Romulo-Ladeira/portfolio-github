@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
+import sumaryCss from './Sumary.module.css'
 export function Sumary({imagem, nome}){
     return(
         <div>
-            <img src={imagem} alt={nome}></img>
+            <img className={sumaryCss["foto-perfil"]} src={imagem} alt={nome}></img>
             <h2>{nome}</h2>
         </div>
     )

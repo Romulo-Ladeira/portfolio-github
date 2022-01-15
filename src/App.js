@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Repository } from "./components/Repository";
 import {Sumary} from "./components/Sumary"
 
@@ -35,13 +36,14 @@ const lista_repositorios = [
 
 ];
 function App() {
+  const [repositorios, setRepositorios] = useState(lista_repositorios)
   return (
   <>
     <h1>Meu portifólio github</h1>
     <Sumary imagem={"https://github.com/Romulo-Ladeira.png"} nome="Romulo Ladeira"/>
-    {lista_repositorios.length <=0?
+    {repositorios.length <=0?
     <p>Nenhum repositório disponivel</p>:
-    lista_repositorios.map(repository=>(
+    repositorios.map(repository=>(
        <Repository key={repository.id} titulo={repository.titulo} descricao={repository.descricao} destacar={repository.destaque} />
     ))}
     

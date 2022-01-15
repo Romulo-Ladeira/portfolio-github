@@ -37,6 +37,7 @@ const lista_repositorios = [
 ];
 function App() {
   const [repositorios, setRepositorios] = useState(lista_repositorios)
+  const [idSelecionado, setIdSelecionado] = useState(1)
   return (
   <>
     <h1>Meu portifólio github</h1>
@@ -44,7 +45,7 @@ function App() {
     {repositorios.length <=0?
     <p>Nenhum repositório disponivel</p>:
     repositorios.map(repository=>(
-       <Repository key={repository.id} titulo={repository.titulo} descricao={repository.descricao} destacar={repository.destaque} />
+       <Repository key={repository.id} titulo={repository.titulo} descricao={repository.descricao} destacar={repository.id === idSelecionado} />
     ))}
     
   </>

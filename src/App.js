@@ -39,9 +39,9 @@ const lista_repositorios = [
 function App() {
   const [repositorios, setRepositorios] = useState(lista_repositorios)
   const [idSelecionado, setIdSelecionado] = useState(1)
-  const [nomeUsuario, setNomeUsuario] =useState("")
-  const getUser =async()=>{
-    const resposta = await fetch("https://api.github.com/users/Romulo-Ladeira/repos")
+  const [nomeUsuario, setNomeUsuario] =useState("Romulo-Ladeira")
+  const fetchDadosDoUsuario =async()=>{
+    const resposta = await fetch(`https://api.github.com/users/${nomeUsuario}/repos`)
     const resultado = await resposta.json()
     const resultadoMapeado = mapToRepoObjec(resultado)
     setRepositorios(resultadoMapeado)
@@ -52,10 +52,10 @@ function App() {
     console.log(nomeUsuario)
   }
   const handleBusca = () =>{
-    console.log('foi')
+   fetchDadosDoUsuario()
   }
   useEffect(()=>{
-    getUser()
+    fetchDadosDoUsuario()
   },[])
   return (
   <>

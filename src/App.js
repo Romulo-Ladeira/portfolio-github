@@ -39,12 +39,17 @@ const lista_repositorios = [
 function App() {
   const [repositorios, setRepositorios] = useState(lista_repositorios)
   const [idSelecionado, setIdSelecionado] = useState(1)
-
+  const [nomeUsuario, setNomeUsuario] =useState("")
   const getUser =async()=>{
     const resposta = await fetch("https://api.github.com/users/Romulo-Ladeira/repos")
     const resultado = await resposta.json()
     const resultadoMapeado = mapToRepoObjec(resultado)
     setRepositorios(resultadoMapeado)
+  }
+
+  const handleNomeUsuario = (e) =>{
+    setNomeUsuario(e.target.value)
+    console.log(nomeUsuario)
   }
   useEffect(()=>{
     getUser()
@@ -53,6 +58,8 @@ function App() {
   <>
     <h1>Meu portifólio github</h1>
     <Sumary imagem={"https://github.com/Romulo-Ladeira.png"} nome="Romulo Ladeira"/>
+    <input type='text' onChange={handleNomeUsuario} value={nomeUsuario}></input>
+    <button>buscar</button>
     {repositorios.length <=0?
     <p>Nenhum repositório disponivel</p>:
     repositorios.map(repository=>(

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Repository } from "./components/Repository";
 import {Sumary} from "./components/Sumary"
 
@@ -38,6 +38,15 @@ const lista_repositorios = [
 function App() {
   const [repositorios, setRepositorios] = useState(lista_repositorios)
   const [idSelecionado, setIdSelecionado] = useState(1)
+
+  const getUser =async()=>{
+    const resposta = await fetch("https://api.github.com/users/Romulo-Ladeira/repos")
+    const usuario = await resposta.json()
+    console.log(usuario)
+  }
+  useEffect(()=>{
+    getUser()
+  },[])
   return (
   <>
     <h1>Meu portifólio github</h1>

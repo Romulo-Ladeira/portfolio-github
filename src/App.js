@@ -66,7 +66,7 @@ function App() {
     {repositorios.length <=0?
     <p>Nenhum repositório disponivel</p>:
     repositorios.map(repository=>(
-       <Repository key={repository.id} titulo={repository.titulo} descricao={repository.descricao} destacar={repository.id === idSelecionado} />
+       <Repository key={repository.id} titulo={repository.titulo} descricao={repository.descricao} destacar={repository.id === idSelecionado} onDestaque={()=>{setIdSelecionado(repository.id)}}/>
     ))}
     
   </>

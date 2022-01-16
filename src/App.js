@@ -51,6 +51,9 @@ function App() {
     setNomeUsuario(e.target.value)
     console.log(nomeUsuario)
   }
+  const handleBusca = () =>{
+    console.log('foi')
+  }
   useEffect(()=>{
     getUser()
   },[])
@@ -59,7 +62,7 @@ function App() {
     <h1>Meu portifólio github</h1>
     <Sumary imagem={"https://github.com/Romulo-Ladeira.png"} nome="Romulo Ladeira"/>
     <input type='text' onChange={handleNomeUsuario} value={nomeUsuario}></input>
-    <button>buscar</button>
+    <button onClick={handleBusca}>buscar</button>
     {repositorios.length <=0?
     <p>Nenhum repositório disponivel</p>:
     repositorios.map(repository=>(

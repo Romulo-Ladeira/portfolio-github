@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Repository } from "./components/Repository";
 import {Sumary} from "./components/Sumary"
+import mapToRepoObjec from "./components/data/data-utils"
 
 const lista_repositorios = [ 
   {
@@ -41,8 +42,9 @@ function App() {
 
   const getUser =async()=>{
     const resposta = await fetch("https://api.github.com/users/Romulo-Ladeira/repos")
-    const usuario = await resposta.json()
-    console.log(usuario)
+    const resultado = await resposta.json()
+    const resultadoMapeado = mapToRepoObjec(resultado)
+    setRepositorios(resultadoMapeado)
   }
   useEffect(()=>{
     getUser()
